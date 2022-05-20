@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - simple Blog With Alpine.js</title>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header x-data="{show: false,  toggle(){this.show = ! this.show}}">
+      <div>
+        <span class="text-logo">AB</span>
+        <a href="/" class="logo">AlpineBlog</a>
+      </div>
+
+      <ul
+        @resize.window="show = false"
+        :class="show ? 'navlist show ' : 'navlist' "
+        x-data="{pages: ['Home','About','Politics','Education','Entertainment']}"
+      >
+        <template x-for="page in pages" :key="page">
+          <li><a x-text="page" :href="page"></a></li>
+        </template>
+      </ul>
+      <ul class="social">
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-youtube"></i></a>
+        </li>
+      </ul>
+
+      <button @click="toggle()" class="menu-btn">
+        <i class="fa-solid fa-2x fa-bars"></i>
+      </button>
+    </header>
+    <main>
+      <div class="sub-header">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="carousel_slider">
+                <h3>WHY EXERCISE IS SO IMPORTANT</h3>
+                <button class="readmore-btn">Read More</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <div class="content-container">
+        <div class="posts">
+          <!-- <h2 class="posts_container-title">POSTS</h2> -->
+          <div class="post-card">
+            <img
+              class="post-thumbnail"
+              src="./images/pexels-the-lazy-artist-gallery-2247179.jpg"
+              alt="post-thumbnail"
+            />
+            <div class="post-short-content">
+              <a href="" class="post-title">LEG EXERCISE YOU SHOULD BE DOING</a>
+              <div class="details">
+                <span x-html="new Date().getFullYear()" class="post-date"
+                  >August 18, 2022</span
+                >
+                <span class="post-type">HEALTH</span>
+              </div>
+              <p class="short">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+                est expedita, illum ea repellat cumque.
+              </p>
+            </div>
+          </div>
+          <div class="post-card">
+            <img
+              class="post-thumbnail"
+              src="./images/pexels-the-lazy-artist-gallery-2247179.jpg"
+              alt="post-thumbnail"
+            />
+            <div class="post-short-content">
+              <a href="" class="post-title">LEG EXERCISE YOU SHOULD BE DOING</a>
+              <div class="details">
+                <span x-html="new Date().getFullYear()" class="post-date"
+                  >August 18, 2022</span
+                >
+                <span class="post-type">HEALTH</span>
+              </div>
+              <p class="short">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+                est expedita, illum ea repellat cumque.
+              </p>
+            </div>
+          </div>
+          <div class="post-card">
+            <img
+              class="post-thumbnail"
+              src="./images/pexels-the-lazy-artist-gallery-2247179.jpg"
+              alt="post-thumbnail"
+            />
+            <div class="post-short-content">
+              <a href="" class="post-title">LEG EXERCISE YOU SHOULD BE DOING</a>
+              <div class="details">
+                <span x-html="new Date().getFullYear()" class="post-date"
+                  >August 18, 2022</span
+                >
+                <span class="post-type">HEALTH</span>
+              </div>
+              <p class="short">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+                est expedita, illum ea repellat cumque.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="recent-posts">
+            <h3 class="rc_posts_container-title">Recent Posts</h3>
+            <hr/>
+            <div class="rc_post-card">
+              <img
+                class="rc_post-thumbnail"
+                src="./images/pexels-the-lazy-artist-gallery-2247179.jpg"
+                alt="rc_post-thumbnail"
+              />
+              <div class="post-short-content">
+                <a href="" class="rc_post-title"
+                  >LEG EXERCISE YOU SHOULD BE DOING</a
+                >
+                <div class="rc_details">
+                  <span x-html="new Date().getFullYear()" class="post-date"
+                    >August 18, 2022</span
+                  >
+                  <span class="rc_post-type">HEALTH</span>
+                </div>
+              </div>
+            </div>
+            <div class="rc_post-card">
+              <img
+                class="rc_post-thumbnail"
+                src="./images/pexels-the-lazy-artist-gallery-2247179.jpg"
+                alt="rc_post-thumbnail"
+              />
+              <div class="post-short-content">
+                <a href="" class="rc_post-title"
+                  >LEG EXERCISE YOU SHOULD BE DOING</a
+                >
+                <div class="rc_details">
+                  <span x-html="new Date().getFullYear()" class="post-date"
+                    >August 18, 2022</span
+                  >
+                  <span class="rc_post-type">HEALTH</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="posts_tags">
+            <h3>TAGS</h3>
+            <hr/>
+            <div class="tags-container">
+              <div
+                x-data="{tags: [
+                  {tag:'Exercise', path:'/posts/exercise'},
+                  {tag:'Training', path:'/posts/training'},
+                  {tag:'Politics', path:'/posts/politics'},
+                  {tag:'Entertainment', path:'/posts/entertainment'},
+                  {tag:'Technology', path:'/posts/technology'},
+                  {tag:'Sport', path:'/posts/sport'}
+                  ]}"
+                class="tags"
+              >
+                <template x-for="tag in tags" :key="tag.tag">
+                  <a class="tag" x-text="tag.tag" :href="tag.path"></a>
+                </template>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <nav class="ft_navs">
+        <ul x-data="{ft_navs: ['Training','Health','About','Contact']}">
+          <template x-for="(nav,index) in ft_navs" :key="index">
+
+            <li>
+              <a x-text="nav" :href="nav.toLowerCase()">Training</i></a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+      <ul class="ft_social">
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="/facebook"><i class="fa-brands fa-youtube"></i></a>
+        </li>
+      </ul>
+
+      <div class="copyright">
+        <h5  class="copyright-text">
+          <span class="owner">&copy 2022 Syntactic Dev. </span>
+          <span>
+            All Rights Reserved</h5>
+          </span>
+      </div>
+     
+    </footer>
+
+
+    <script>
+
+
+    
+     
+
+    </script>
+  </body>
+</html>
